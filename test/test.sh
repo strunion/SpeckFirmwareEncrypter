@@ -17,4 +17,4 @@ do
     fi
 done
 # Remove the output file
-# rm test.bin
+rm test.bin
