@@ -57,8 +57,8 @@ def main():
             for i in range(0, len(raw_data), CYPHER_BLOCK_SIZE_BYTES)
         ]
 
-        if len(raw_blocks[-1]) < 8:
-            raw_blocks[-1] += b'\xff' * (8 - len(raw_blocks[-1]))
+        if len(raw_blocks[-1]) < CYPHER_BLOCK_SIZE_BYTES:
+            raw_blocks[-1] += b'\xff' * (CYPHER_BLOCK_SIZE_BYTES - len(raw_blocks[-1]))
 
         cipher = SpeckCipher(args.key, key_size=KEY_SIZE, block_size=CYPHER_BLOCK_SIZE)
 
